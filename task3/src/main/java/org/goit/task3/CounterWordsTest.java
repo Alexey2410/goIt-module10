@@ -6,21 +6,13 @@ public class CounterWordsTest {
 
     static void main(String[] args) {
 
-        FileWordsReader fileValidator = new FileWordsReader();
+        FileWordsReader wordsReader = new FileWordsReader();
 
-        Map<String, Integer> uniqueWords = fileValidator.readWords(
+        Map<String, Integer> uniqueWords = wordsReader.readWords(
                 "../task3/src/main/resources/in/words.txt");
 
 
-        List<Map.Entry<String, Integer> > list =
-                new LinkedList<Map.Entry<String, Integer> >(uniqueWords.entrySet());
-
-        Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() {
-            public int compare(Map.Entry<String, Integer> o1,
-                               Map.Entry<String, Integer> o2) {
-                return (o2.getValue()).compareTo(o1.getValue());
-            }
-        });
+        List<Map.Entry<String, Integer>> list = WordsSorter.sortUniqueWord(uniqueWords);
         for(Map.Entry<String, Integer> line : list){
 
             System.out.println(line.getKey() + " " + line.getValue());
