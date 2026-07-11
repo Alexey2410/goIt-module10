@@ -12,7 +12,7 @@ public class ValidatorTest {
         PhoneTemplate template = new PhoneTemplate();
 
         ArrayList<String> validPhones = fileValidator.readValidData(
-                "src/main/resources/in/file.txt",
+                "../task1/src/main/resources/in/file.txt",
                 template);
 
         for(String line : validPhones){
